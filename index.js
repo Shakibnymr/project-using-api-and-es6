@@ -49,7 +49,7 @@ cardContainer.appendChild(card);
          }
 
 const handleModal = async(newsId) => {
-const response = await fetch(`URL Format: https://openapi.programming-hero.com/api/news/${newsId}`);
+const response = await fetch(`https://openapi.programming-hero.com/api/news/${newsId}`);
 const news = await response.json();
 console.log(news);
   console.log(newsId)
