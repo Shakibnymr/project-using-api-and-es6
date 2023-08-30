@@ -39,7 +39,7 @@ card.innerHTML = `
   <h2 class="card-title">Shoes!</h2>
   <p>If a dog chews shoes whose shoes does he choose?</p>
   <div class="card-actions justify-end">
-    <button class="btn btn-primary">Buy Now</button>
+    <button onclick="handleModal('${newsCard._id}')" class="btn btn-primary">Buy Now</button>
   </div>
 </div>
 `;
@@ -47,6 +47,36 @@ cardContainer.appendChild(card);
 })
 
          }
+
+const handleModal = async(newsId) => {
+const response = await fetch(`URL Format: https://openapi.programming-hero.com/api/news/${newsId}`);
+const news = await response.json();
+console.log(news);
+  console.log(newsId)
+  const modalContainer = document.getElementById('modal-container')
+const div = document.createElement('div');
+div.innerHTML =`
+<dialog id="my_modal_1" class="modal">
+  <form method="dialog" class="modal-box">
+    <h3 class="font-bold text-lg">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <!-- if there is a button in form, it will close the modal -->
+      <button class="btn">Close</button>
+    </div>
+  </form>
+</dialog>
+`
+modalContainer.appendChild(div);
+const modal = document.getElementById('my_modal_1');
+modal.showModal();
+}
+
+
+
+
+
+
     handleLoadNews('03');
 
 
