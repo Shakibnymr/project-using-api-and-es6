@@ -27,7 +27,8 @@ const handleLoadNews = async(categoryId) => {
     const data = await response.json();
     const mainNews = data.data;
     console.log(mainNews);
-const cardContainer = document.getElementById('card-container')
+const cardContainer = document.getElementById('card-container');
+cardContainer.innerHTML = "";
 mainNews.forEach(newsCard => {
     console.log(newsCard);
 const card = document.createElement('div');
@@ -46,7 +47,7 @@ cardContainer.appendChild(card);
 })
 
          }
-    
+    handleLoadNews('03');
 
 
 loadCategory();
